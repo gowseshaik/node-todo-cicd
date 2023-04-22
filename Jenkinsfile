@@ -16,7 +16,6 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         	     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                 sh 'docker push gowseshaik/node-todo-test:${env.BUILD_NUMBER}'
                  sh 'docker push gowseshaik/node-todo-test:latest'
                 }
             }
